@@ -968,7 +968,7 @@ $(document).ready(function() {
 						}
 					} else if (bukDam != 1 && (bukDam - 4) < playDam) {
 						buk_health -= 1;
-						$('<p>You stike the bucket with your knife.</p>').insertBefore("#placeholder").fadeIn(1000);
+						$('<p>You strike the bucket with your knife.</p>').insertBefore("#placeholder").fadeIn(1000);
 					} else if (bukDam != 20 && bukDam > playDam) {
 						$('<p>The bucket evaded your attempt.</p>').insertBefore("#placeholder").fadeIn(1000);
 					}
@@ -1470,7 +1470,7 @@ $(document).ready(function() {
 			else if (input == "unlock door 3 with hammer" || input == "unlock door 3" || input == "unlock door 3 with sledgehammer" || input == "unlock door 3 with sledge hammer") {
 				if (currentroom == "area_hub") {
 					if (hammer == true && unlocked_3 == false) {
-						$('<p>you knock door the wall painted 3 and reveal the next challenge room, looks a little...<br>would ancient be the right word?</p>').insertBefore('#placeholder').fadeIn(1000);
+						$('<p>you knock down the wall painted 3 and reveal the next challenge room, looks a little...<br>would ancient be the right word?</p>').insertBefore('#placeholder').fadeIn(1000);
 						unlocked_3 = true;
 					} else if (hammer == false && unlocked_3 == false) {
 						$('<p>You can\'t unlock that door yet</p>').insertBefore('#placeholder').fadeIn(1000);
