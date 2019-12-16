@@ -624,3 +624,13 @@ input:focus {
 #screen {
 	z-index: -1;
 }
+
+.death {
+	z-index: 0;
+	position: absolute;
+}
+
+body {
+	overflow-x: hidden;
+	overflow-y: hidden;
+}

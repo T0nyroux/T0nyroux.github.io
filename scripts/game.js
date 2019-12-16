@@ -3,6 +3,7 @@
 //
 var timedDialogue = "";
 var timedDialogue2 = "";
+var introGo = "";
 bukShot = 0;
 GnomeHealth = 1;
 GnomeTrip = false;
@@ -97,6 +98,7 @@ health = 100;
 z_health = 2;
 buk_health = 5;
 Xtra = 0;
+var body = document.getElementById("body");
 //array variables
 var array_z = [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 0];
 function ATK_z(array_z) { return array_z[Math.floor(Math.random() * array_z.length)]; };
@@ -108,6 +110,12 @@ function ATK_P(ary_player) { return ary_player[Math.floor(Math.random() * ary_pl
 //
 //
 $(document).ready(function() {
+	
+	$('<img src="videos/intro.gif" id="intro" style="width:1600px;height:600px;margin-left:-25%;margin-right:-5%;margin-top:-10%;z-index:1;padding:200px;">').insertBefore("#dev_map").
+	introGo = setTimeout(function () {$('#intro').fadeOut(2000);
+	GameGo = setTimeout(function () {
+	body.style.overflowX = "auto";
+	body.style.overflowY = "auto";
 	$("#message_begin").fadeIn(3000);
 	$("#area_main").fadeIn(3000);
 	$("#command_line").fadeIn(3000);
@@ -121,7 +129,7 @@ $(document).ready(function() {
 	$("#yes2").fadeIn(4000);
 	$('<img src="heart/heart start.png" style="width:100px;height:100px" id="health">').insertBefore('#placeholder_dos');
 	$('<video autoplay loop id="screen"><source src="videos/video_JC/JCidle.mp4" type="video/mp4">you cannot use screen</video>').insertBefore("#zero");
-	$("#yes2").fadeOut(4000);
+	$("#yes2").fadeOut(4000);}, 2000)}, 4000);
 	$("form").submit(function() {
 		var input = $("#command_line").val();
 
