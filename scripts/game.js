@@ -1,6 +1,9 @@
 //
 //SETS ALL VARIABLES FOR THE GAME
 //
+window.onload = function() {
+    document.getElementById("introS").play();
+}
 var timedDialogue = "";
 var timedDialogue2 = "";
 var introGo = "";
@@ -110,8 +113,11 @@ function ATK_P(ary_player) { return ary_player[Math.floor(Math.random() * ary_pl
 //
 //
 $(document).ready(function() {
-	
-	$('<img src="videos/intro.gif" id="intro" style="width:100%;height:100%;z-index:1;">').insertBefore("#dev_map").
+	introStart = setTimeout(function () {
+	$('<img src="videos/intro.gif" id="intro" style="width:100%;height:100%;z-index:1;">').insertBefore("#dev_map");}, 1);
+	$(document).ready(function() {
+		$("#intro").get(0).play();
+	});
 	introGo = setTimeout(function () {$('#intro').fadeOut(2000);
 	GameGo = setTimeout(function () {
 	body.style.overflowX = "auto";
@@ -129,7 +135,7 @@ $(document).ready(function() {
 	$("#yes2").fadeIn(4000);
 	$('<img src="heart/heart start.png" style="width:100px;height:100px" id="health">').insertBefore('#placeholder_dos');
 	$('<video autoplay loop id="screen"><source src="videos/video_JC/JCidle.mp4" type="video/mp4">you cannot use screen</video>').insertBefore("#zero");
-	$("#yes2").fadeOut(4000);}, 2000)}, 4000);
+	$("#yes2").fadeOut(4000);}, 2000)}, 4000); 
 	$("form").submit(function() {
 		var input = $("#command_line").val();
 
