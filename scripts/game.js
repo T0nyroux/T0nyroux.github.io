@@ -1921,7 +1921,7 @@ $(document).ready(function() {
 					}
 					else if (powder == true ) {
 						bonuscrate = "The crate sits empty and shifted, ladder revealed.";
-						$('<img src="videos/video_1_6/crateMoved.png" style="width:800px;height:300px;position:absolute" id="screen_crate">').insertBefore("#zero");
+						$('<img src="videos/video_1_6/crateMoved.png" style="width:800px;height:300px;position:absolute" id="screen_crate" class="screen">').insertBefore("#zero");
 					}
 
 					$('<p>You are back in the small storage room. You came from the north. ' + bonuscrate + '</p>').insertBefore("#placeholder").fadeIn(1000);
@@ -1963,7 +1963,7 @@ $(document).ready(function() {
 				$('<p>You ascend up the ladder into the crate room. North, the hall, down, the jukebox room.</p>').insertBefore("#placeholder").fadeIn(1000);
 				currentroom = "bonus";
 				if (powder == true) {
-					$('<img src="videos/video_1_6/crateMoved.png" style="width:800px;height:300px;position:absolute" id="screen_crate">').insertBefore("#zero");
+					$('<img src="videos/video_1_6/crateMoved.png" style="width:800px;height:300px;position:absolute" id="screen_crate" class="screen">').insertBefore("#zero");
 				} else if (powder == false) {
 					$('<img src="videos/video_1_6/crateMoved.png" style="width:800px;height:300px;position:absolute" id="screen_crate" class="screen">').insertBefore("#zero");
 					$('<img src="videos/video_1_6/powderMoved.png" style="width:800px;height:300px;position:absolute" id="screen_powder" class="screen">').insertBefore("#zero");
