@@ -111,7 +111,7 @@ function ATK_P(ary_player) { return ary_player[Math.floor(Math.random() * ary_pl
 //
 $(document).ready(function() {
 	
-	$('<img src="videos/intro.gif" id="intro" style="width:1600px;height:600px;margin-left:-25%;margin-right:-5%;margin-top:-10%;z-index:1;padding:200px;">').insertBefore("#dev_map").
+	$('<img src="videos/intro.gif" id="intro" style="width:100%;height:100%;z-index:1;">').insertBefore("#dev_map").
 	introGo = setTimeout(function () {$('#intro').fadeOut(2000);
 	GameGo = setTimeout(function () {
 	body.style.overflowX = "auto";
