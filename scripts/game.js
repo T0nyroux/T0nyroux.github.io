@@ -737,6 +737,7 @@ $(document).ready(function() {
 			//gunpowder
 			else if (input == "search powder" || input == "check powder") {
 				if (powder == true && torch == true) {
+					currentArea = -1;
 					$('<p>You lean in close with the torch to see the powder<br> like the Chinese in the 8th century,<br> you have discovered gunpowder</p>').insertBefore("#placeholder").fadeIn(1000);
 					//figure out stock explosion please
 					$("audio").detach(".death");
@@ -820,6 +821,7 @@ $(document).ready(function() {
 			//powder
 			else if (input == "eat powder" || input == "eat strange powder") {
 				if (powder == true) {
+					currentArea = -1;
 					$("audio").detach(".death");
 					$("img").detach(".death");
 					$("video").detach(".death");
@@ -910,6 +912,7 @@ $(document).ready(function() {
 					if (ATK_z(array_z) == 2) {
 						if (z_health == 1) {
 							zombiedead = true;
+							$('#screen_Enmy').fadeOut(1000);
 							$('<p>You hit the zombie.</p>').insertBefore("#placeholder").fadeIn(1000);
 							$('<p>You did it! The zombie is dead! <br> You see a glimmer in the zombie\'s torso?</p>').insertBefore("#placeholder").fadeIn(1000);
 						} else {
@@ -938,6 +941,7 @@ $(document).ready(function() {
 				if (currentroom == "morgue" && zombiedead == false) {
 					$('<p>Where did you get that? seriuosly where?<br> I mean you killed the zombie,<br> but where did you get a gun?</p>').insertBefore("#placeholder").fadeIn(1000);
 					zombiedead = true;
+					$('#screen_Enmy').fadeOut(1000);
 				}
 				else {
 					$('<p>You can\'t do that.</p>').insertBefore("#placeholder").fadeIn(1000);
@@ -952,6 +956,7 @@ $(document).ready(function() {
 							zombiedead = true;
 							$('<p>You hit the zombie.</p>').insertBefore("#placeholder").fadeIn(1000);
 							$('<p>You did it! The zombie is dead! <br> You see a glimmer in the zombie\'s torso?</p>').insertBefore("#placeholder").fadeIn(1000);
+							$('#screen_Enmy').fadeOut(1000);
 						} else {
 							z_health -= 1;
 							$('<p>You hit the zombie.</p>').insertBefore("#placeholder").fadeIn(1000);
@@ -981,6 +986,7 @@ $(document).ready(function() {
 					ATK_z(array_z);
 					if (ATK_z(array_z) == 2) {
 						if (z_health == 1) {
+							$('#screen_Enmy').fadeOut(1000);
 							zombiedead = true;
 							$('<p>You hit the zombie.</p>').insertBefore("#placeholder").fadeIn(1000);
 							$('<p>You did it! The zombie is dead! <br> You see a glimmer in the zombie\'s torso?</p>').insertBefore("#placeholder").fadeIn(1000);
@@ -1037,10 +1043,12 @@ $(document).ready(function() {
 						health -= 5;
 						$('<p>The bucket kicks you in the shins and you take 5 damage.</p>').insertBefore("#placeholder").fadeIn(1000);
 					} else if (bukDam == 1) {
+						$('#screen_Enmy').fadeOut(1000);
 						buk_health = 0;
 						$('<p>The bucket literally fell over and died.<br>You pick up the bucket.</p>').insertBefore("#placeholder").fadeIn(1000);
 						bucket_e = true;
 					} else if (bukDam != 1 && (bukDam - 4) < playDam) {
+						$('#screen_Enmy').fadeOut(1000);
 						buk_health = 0;
 						$('<p>You struck the bucket and killed it.<br>You pick up the bucket</p>').insertBefore("#placeholder").fadeIn(1000);
 						bucket_e = true;
@@ -1078,10 +1086,12 @@ $(document).ready(function() {
 						health -= 5;
 						$('<p>The bucket kicks you in the shins and you take 5 damage.</p>').insertBefore("#placeholder").fadeIn(1000);
 					} else if (bukDam == 1) {
+						$('#screen_Enmy').fadeOut(1000);
 						buk_health = 0;
 						$('<p>The bucket literally fell over and died.<br>You pick up the bucket.</p>').insertBefore("#placeholder").fadeIn(1000);
 						bucket_e = true;
 					} else if (bukDam != 1 && (bukDam - 4) < playDam) {
+						$('#screen_Enmy').fadeOut(1000);
 						buk_health = 0;
 						$('<p>You whipped the bucket and killed it.<br>You pick up the bucket</p>').insertBefore("#placeholder").fadeIn(1000);
 						bucket_e = true;
@@ -1119,10 +1129,12 @@ $(document).ready(function() {
 						health -= 5;
 						$('<p>The bucket kicks you in the shins and you take 5 damage.</p>').insertBefore("#placeholder").fadeIn(1000);
 					} else if (bukDam == 1) {
+						$('#screen_Enmy').fadeOut(1000);
 						buk_health = 0;
 						$('<p>The bucket literally fell over and died.<br>You pick up the bucket.</p>').insertBefore("#placeholder").fadeIn(1000);
 						bucket_e = true;
 					} else if (bukDam != 1 && (bukDam - 4) < playDam) {
+						$('#screen_Enmy').fadeOut(1000);
 						buk_health = 0;
 						$('<p>You smacked the bucket one final time and killed the helpless bucket.<br>You pick up the bucket</p>').insertBefore("#placeholder").fadeIn(1000);
 						bucket_e = true;
@@ -1140,6 +1152,7 @@ $(document).ready(function() {
 					bukShot = 2;
 				} else if (bukShot >= 2) {
 					$('<p>I warned you<br>You shot the bucket, and considering breaking the bucket renders the game unplayable<br>And you would\'nt listen to me<br>This is soviet Russia now,<br>And in soviet Russia, bucket shoots you<br><br>You have died<br>good job.</p>').insertBefore("#placeholder").fadeIn(1000);
+					currentArea = -1;
 					$("audio").detach(".death");
 					$("img").detach(".death");
 					$("video").detach(".death");
@@ -1162,6 +1175,7 @@ $(document).ready(function() {
 						$('<p>He dodged with shocking grace.</p>').insertBefore('#placeholder').fadeIn(1000);
 					}
 				} else if (GnomeTrip == true) {
+					$('#screen_Enmy').fadeOut(1000);
 					GnomeHealth = 0;
 					$('<p>You killed the gnome!<br>now his hammer lays untouched and all that remains of him are his scattered fragments</p>').insertBefore('#placeholder').fadeIn(1000);
 				}
@@ -1176,6 +1190,7 @@ $(document).ready(function() {
 						$('<p>He practically danced around the whip tails, weird.</p>').insertBefore('#placeholder').fadeIn(1000);
 					}
 				} else if (GnomeTrip == true) {
+					$('#screen_Enmy').fadeOut(1000);
 					GnomeHealth = 0;
 					$('<p>You killed the gnome!<br>now his hammer lays untouched and all that remains of him are his scattered fragments</p>').insertBefore('#placeholder').fadeIn(1000);
 				}
@@ -1190,6 +1205,7 @@ $(document).ready(function() {
 						$('<p>He dodged with shocking grace.</p>').insertBefore('#placeholder').fadeIn(1000);
 					}
 				} else if (GnomeTrip == true) {
+					$('#screen_Enmy').fadeOut(1000);
 					GnomeHealth = 0;
 					$('<p>No, we aren\'t doing that anymore, I get it the tray is funny,<br>but I\'m over it, Jenny is over it, we\'re done with the tray, use something else.</p>').insertBefore('#placeholder').fadeIn(1000);
 				}
@@ -1204,6 +1220,7 @@ $(document).ready(function() {
 						$('<p>He spun the hammer <i>so</i> fast that he deflected the bullet like a light saber, I told you this gnoblin is scary.</p>').insertBefore('#placeholder').fadeIn(1000);
 					}
 				} else if (GnomeTrip == true) {
+					$('#screen_Enmy').fadeOut(1000);
 					GnomeHealth = 0;
 					health -= 5;
 					$('<p>Listen dude, the gun is a bit overkill, the clay practically explodes and the fragments scratch you up for 5 damage<br>now his hammer lays untouched and all that remains of him are his scattered fragments</p>').insertBefore('#placeholder').fadeIn(1000);
@@ -1215,6 +1232,7 @@ $(document).ready(function() {
 			//kill self
 			else if (input == "attack self with lunch tray" || input == "attack self with lunchtray" || input == "attack self with tray") {
 				if (lunchtray == true && health == 1) {
+					currentArea = -1;
 					$("audio").detach(".death");
 					$("img").detach(".death");
 					$("video").detach(".death");
@@ -1234,6 +1252,7 @@ $(document).ready(function() {
 
 			else if (input == "attack self with knife") {
 				if (knife == true) {
+					currentArea = -1;
 					$("audio").detach(".death");
 					$("img").detach(".death");
 					$("video").detach(".death");
@@ -1249,6 +1268,7 @@ $(document).ready(function() {
 
 			else if (input == "attack self with whip") {
 				if (whip == true) {
+					currentArea = -1;
 					$("audio").detach(".death");
 					$("img").detach(".death");
 					$("video").detach(".death");
@@ -1263,6 +1283,7 @@ $(document).ready(function() {
 			}
 
 			else if (input == "attack self with gun") {
+				currentArea = -1;
 				$('<p>You shot yourself, i don\'t know where you got ammo<br> or a gun for that matter<br> but you shot yourself</p>').insertBefore("#placeholder").fadeIn(1000);
 				$("audio").detach(".death");
 				$("img").detach(".death");
@@ -1827,6 +1848,7 @@ $(document).ready(function() {
 			//go to hub
 			else if (input == "go north" && currentroom == "corridor_2" || input == "go back" && currentroom == "2.2" || input == "go back" && currentroom == "2.3" || input == "go back" && currentroom == "2.4" || input == "go back" && currentroom == "2.5" || input == "go back" && currentroom == "2.6" || input == "go back" && currentroom == "2.7") {
 				$("img").detach(".screen");
+				$('<img src="videos/placeHolder.png" style="width:800px;height:300px;position:absolute" id="screen" class="screen">').insertBefore("#zero");
 				if (beentohub == false) {
 				$("#area_hub").clone().insertBefore("#placeholder").fadeIn(1000);
 				beentohub = true;
@@ -1869,14 +1891,21 @@ $(document).ready(function() {
 
 			//go to room 2.2
 			else if (input == "go through door 1" && currentroom == "area_hub") {
+				$("img").detach(".screen");
+				$('<img src="videos/placeHolder.png" style="width:800px;height:300px;position:absolute" id="screen" class="screen">').insertBefore("#zero");
 				if (beento2_2 == false) {
 					$('<p>You enter a room that is obviously the first of many.<br> Agaist the left wall, there sits a large scale.<br>On one arm, a stone, and on the other, a standard scale platform.<br>In the back right corner, is a small fountain, with a bucket to its side.<br>Finally, under the stone, there lies a rug with a small tag visible beneath.</p>').insertBefore("#placeholder").fadeIn(1000);
-
+					$('<img src="videos/placeholderEnmy.gif" style="width:800px;height:300px;position:absolute" id="screen_Enmy" class="screen">').insertBefore("#zero");
 					beento2_2 = true;
 				}
 				else {
 					if (bucket_e == false && solved2_2 == false && bucket_f == false) {
 						$("<p>You return to the first challenge room, the bucket remains, the puzzle unsolved.<br>It's as if you've done nothing.</p>").insertBefore("#placeholder").fadeIn(1000);
+						if (buk_health > 0) {
+							$('<img src="videos/placeholderEnmy.gif" style="width:800px;height:300px;position:absolute" id="screen_Enmy" class="screen">').insertBefore("#zero");
+						} else {
+
+						}
 					} else if (bucket_e == true && solved2_2 == false) {
 						$("<p>You walk back into the first challenge room,<br>You have the pieces to solve this puzzle, but you haven't<br>Why is that?</p>").insertBefore("#placeholder").fadeIn(1000);
 					} else if (bucket_f == true && solved2_2 == false) {
@@ -1903,7 +1932,10 @@ $(document).ready(function() {
 				if (unlocked_2 == false) {
 					$('<p>But it\'s still locked</p>').insertBefore('#placeholder').fadeIn(1000);
 				} else {
+					$("img").detach(".screen");
+					$('<img src="videos/placeHolder.png" style="width:800px;height:300px;position:absolute" id="screen" class="screen">').insertBefore("#zero");
 					if (beento2_3 == false) {
+						$('<img src="videos/placeholderEnmy.gif" style="width:800px;height:300px;position:absolute" id="screen_Enmy" class="screen">').insertBefore("#zero");
 						$("<p id='Gnome1'>You enter another of the challenge rooms,<br>In one corner, you see a small pile of bananas<br>In the other, a gnoblin wi-</p>").insertBefore('#placeholder').fadeIn(1000);
 						beento2_3 = true;
 						timedDialogue = setTimeout(function () {
@@ -1915,10 +1947,13 @@ $(document).ready(function() {
 					} else {
 						if (GnomeHealth > 0 && banana == false && peel == false) {
 							$("<p>Everything is still here, the gnoblin lives, the bananas remain.</p>").insertBefore('#placeholder').fadeIn(1000);
+							$('<img src="videos/placeholderEnmy.gif" style="width:800px;height:300px;position:absolute" id="screen_Enmy" class="screen">').insertBefore("#zero");
 						} else if (GnomeHealth > 0 && peel == true) {
 							$("<p>The Gnoblin is alive, and you have the right tools, just kill him.</p>").insertBefore('#placeholder').fadeIn(1000);
+							$('<img src="videos/placeholderEnmy.gif" style="width:800px;height:300px;position:absolute" id="screen_Enmy" class="screen">').insertBefore("#zero");
 						} else if (GnomeHealth > 0 && banana == true) {
 							$("<p>You don't have what you need to beat the gnoblin-gnome yet, but go ahead, keep fighting him I dare you.</p>").insertBefore('#placeholder').fadeIn(1000);
+							$('<img src="videos/placeholderEnmy.gif" style="width:800px;height:300px;position:absolute" id="screen_Enmy" class="screen">').insertBefore("#zero");
 						} else if (GnomeHealth <= 0 && hammer == false) {
 							$("<p>You killed the Gnoblin...<br>good he can't correct me anymore...<br>All that's left is his beefy hammer boi.</p>").insertBefore('#placeholder').fadeIn(1000);
 						} else if (GnomeHealth <= 0 && hammer == true) {
@@ -1937,6 +1972,8 @@ $(document).ready(function() {
 				if (unlocked_3 == false) {
 					$('<p>But it\'s still locked</p>').insertBefore('#placeholder').fadeIn(1000);
 				} else {
+					$("img").detach(".screen");
+					$('<img src="videos/placeHolder.png" style="width:800px;height:300px;position:absolute" id="screen" class="screen">').insertBefore("#zero");
 					if (beento2_4 == false) {
 						$('<p>You enter what was a sealed room until you so viciously tore it open.<br>There sits a small frog, so cute, as well as spores and mushrooms growing in the corner, so funky.<br>You notice the wallpaper is tearing away and the mushrooms seem very active.</p>').insertBefore('#placeholder').fadeIn(1000);
 						$('<p>Unfortunately, there isn\'t actually anything to play in this room yet, and trust me, I\'m working as fast as possible, but I think you\' re going to like this one, it requires video.</p>').insertBefore('#placeholder').fadeIn(1000);
@@ -2114,6 +2151,7 @@ $(document).ready(function() {
 				if (beenmorgue == true) {
 					if (zombiedead == false) {
 						morguezombie = "The zombie is still here!";
+						$('<img src="videos/placeholderEnmy.gif" style="width:800px;height:300px;position:absolute" id="screen_Enmy" class="screen">').insertBefore("#zero");
 					}
 					else {
 						morguezombie = "The zombie remains on the floor rotting in a cesspool of it's juices.";
@@ -2123,6 +2161,7 @@ $(document).ready(function() {
 				}
 				else {
 					$("#area_morgue").clone().insertBefore("#placeholder").fadeIn(1000);
+					$('<img src="videos/placeholderEnmy.gif" style="width:800px;height:300px;position:absolute" id="screen_Enmy" class="screen">').insertBefore("#zero");
 					beenmorgue = true;
 					currentroom = "morgue";
 				}
@@ -2584,6 +2623,7 @@ $(document).ready(function() {
 		//should you ever somehow die
 		//
 		if (health <= 0) {
+			currentArea = -1;
 			$("audio").detach(".death");
 			$("img").detach(".death");
 			$("video").detach(".death");
