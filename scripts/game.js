@@ -143,6 +143,35 @@ $(document).ready(function() {
 				return;
 			}
 		}
+                body.onmouseclick = function () {
+			if (start == false) {
+				$('#press').fadeOut(10);
+				introStart = setTimeout(function () {
+				$('<img src="videos/intro.gif" id="intro" style="width:100%;height:100%;z-index:1;">').insertBefore("#dev_map");
+				$('<audio autoplay id="introS" src="audio/intro.mp3"></audio>').insertBefore('#dev_map');}, 1);
+				introGo = setTimeout(function () {$('#intro').fadeOut(2000);
+				GameGo = setTimeout(function () {
+				body.style.overflowX = "auto";
+				body.style.overflowY = "auto";
+				$("#message_begin").fadeIn(3000);
+				$("#area_main").fadeIn(3000);
+				$("#command_line").fadeIn(3000);
+				$("#map_back").fadeIn(3000);
+				$("#inventory").fadeIn(3000);
+				$("#inventory_br").fadeIn(3000);
+				$("#inventory_box").fadeIn(3000);
+				$("#health_display").fadeIn(3000);
+				$("#location_JC").fadeIn(3000);
+				$(".Map_JC").fadeIn(3000);
+				$("#yes2").fadeIn(4000);
+				$('<img src="heart/heart start.png" style="width:100px;height:100px" id="health">').insertBefore('#placeholder_dos');
+				$('<video autoplay loop id="screen"><source src="videos/video_JC/JCidle.mp4" type="video/mp4">you cannot use screen</video>').insertBefore("#zero");
+				$("#yes2").fadeOut(4000);}, 2000)}, 4000); 
+				start = true;
+			} else {
+				return;
+			}
+		}
 	} else {
 		body.style.overflowX = "auto";
 		body.style.overflowY = "auto";
