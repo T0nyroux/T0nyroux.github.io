@@ -143,7 +143,7 @@ $(document).ready(function() {
 				return;
 			}
 		}
-                body.onmouseclick = function () {
+        body.onclick = function () {
 			if (start == false) {
 				$('#press').fadeOut(10);
 				introStart = setTimeout(function () {
