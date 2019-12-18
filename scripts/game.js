@@ -109,6 +109,8 @@ var ary_stndrd = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18,
 var ary_player = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 function ATK(ary_stndrd) { return ary_stndrd[Math.floor(Math.random() * ary_stndrd.length)]; };
 function ATK_P(ary_player) { return ary_player[Math.floor(Math.random() * ary_player.length)]; };
+var ary_Insult = ["simpleton", "degenerate", "buffoon", "ingrate", "heretic", "cretin", "cow", "pillock", "mumpsimus", "ninnyhammer", "bobolyne", "dalcop"]
+function returnInsult(ary_Insult) {return ary_Insult[Math.floor(Math.random() * ary_Insult.length)];}
 //
 //
 //
@@ -2381,7 +2383,8 @@ $(document).ready(function() {
 		//})
 
 		else if (input != "") {
-			$('<p>I\'m sorry, what kind of simpleton tries to use "' + input + '"?</p>').insertBefore("#placeholder").fadeIn(1000);
+			Insult = returnInsult(ary_Insult);
+			$('<p>I\'m sorry, what kind of ' + Insult + ' tries to use "' + input + '"?</p>').insertBefore("#placeholder").fadeIn(1000);
 		}
 
 		//torch
