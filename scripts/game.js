@@ -95,6 +95,7 @@ currentroom = "jail";
 bukFight = false;
 searchtable = false;
 crate = false;
+stoneMoved = false;
 zombiedead = false;
 health = 100;
 z_health = 2;
@@ -137,7 +138,7 @@ $(document).ready(function() {
 				$("#yes2").fadeIn(4000);
 				$('<img src="heart/heart start.png" style="width:100px;height:100px" id="health">').insertBefore('#placeholder_dos');
 				$('<video autoplay loop id="screen"><source src="videos/video_JC/JCidle.mp4" type="video/mp4">you cannot use screen</video>').insertBefore("#zero");
-				$("#yes2").fadeOut(4000);}, 2000)}, 4000); 
+				$("#yes2").fadeOut(4000);}, 2000)}, 4000);
 				start = true;
 			} else {
 				return;
@@ -166,7 +167,7 @@ $(document).ready(function() {
 				$("#yes2").fadeIn(4000);
 				$('<img src="heart/heart start.png" style="width:100px;height:100px" id="health">').insertBefore('#placeholder_dos');
 				$('<video autoplay loop id="screen"><source src="videos/video_JC/JCidle.mp4" type="video/mp4">you cannot use screen</video>').insertBefore("#zero");
-				$("#yes2").fadeOut(4000);}, 2000)}, 4000); 
+				$("#yes2").fadeOut(4000);}, 2000)}, 4000);
 				start = true;
 			} else {
 				return;
@@ -195,7 +196,7 @@ $(document).ready(function() {
 				$("#yes2").fadeIn(4000);
 				$('<img src="heart/heart start.png" style="width:100px;height:100px" id="health">').insertBefore('#placeholder_dos');
 				$('<video autoplay loop id="screen"><source src="videos/video_JC/JCidle.mp4" type="video/mp4">you cannot use screen</video>').insertBefore("#zero");
-				$("#yes2").fadeOut(4000);}, 2000)}, 4000); 
+				$("#yes2").fadeOut(4000);}, 2000)}, 4000);
 				start = true;
 			} else {
 				return;
@@ -217,7 +218,7 @@ $(document).ready(function() {
 		$("#yes2").fadeIn(4000);
 		$('<img src="heart/heart start.png" style="width:100px;height:100px" id="health">').insertBefore('#placeholder_dos');
 		$('<video autoplay loop id="screen"><source src="videos/video_JC/JCidle.mp4" type="video/mp4">you cannot use screen</video>').insertBefore("#zero");
-		$("#yes2").fadeOut(4000); 
+		$("#yes2").fadeOut(4000);
 		start = true;
 	}
 	$("form").submit(function() {
@@ -576,6 +577,8 @@ $(document).ready(function() {
 			else if (input == "take bucket") {
 				if (currentroom == "2.2" && bukFight == false) {
 					$('<p>OH MY GOD! THE BUCKET IS ALIVE!<br>AS NARRATOR AND DEVELOPER OF THIS GAME, I <i>NEVER</i> COULD HAVE SEEN THIS COMING!</p>').insertBefore("#placeholder").fadeIn(1000);
+					$('img').detach('#screen_Enmy');
+					$('<img src="videos/Area2/video_2_2/2_2bukFight.gif" style="width:800px;height:300px;position:absolute" id="screen_Enmy" class="screen">').insertBefore("#zero");
 					bukFight = true;
 				} else if (currentroom == "2.2" && bukFight == true && bucket_e == true) {
 					$('<p>That item is not here!</p>').insertBefore("#placeholder").fadeIn(1000);
@@ -639,6 +642,10 @@ $(document).ready(function() {
 					if (bucket_e == true) {
 						$('<p>Why? There\'s nothing in your bucket.</p>').insertBefore('#placeholder').fadeIn(1000);
 					} else if (bucket_f == true) {
+						$('img').detach("#screen_obj");
+						$('<img src="videos/Area2/video_2_2/rug.png" style="width:800px;height:300px;position:absolute" id="screen_obj2" class="screen">').insertBefore("#zero");
+						$('<img src="videos/Area2/video_2_2/scaleMove.gif" style="width:800px;height:300px;position:absolute" id="screen_obj" class="screen">').insertBefore("#zero");
+						$('<img src="videos/Area2/video_2_2/2_2guy.gif" style="width:800px;height:300px;position:absolute" id="screen_guy" class="screen">').insertBefore("#zero");
 						$('<p>You place your bucket on the scale and watch it slowly tip.<br>Below the stone, you see a small rug, with a tag sticking out from underneath</p>').insertBefore('#placeholder').fadeIn(1000);
 						bucket_f = false;
 						$('#bukF').fadeOut(10);
@@ -758,6 +765,8 @@ $(document).ready(function() {
 				if (solved2_2 == false) {
 					$('<p>You can\'t, the stone is still down.</p>').insertBefore("#placeholder").fadeIn(1000);
 				} else if (solved2_2 == true) {
+					$('img').detach("#screen_obj2");
+					$('<img src="videos/Area2/video_2_2/rugSearched.png" style="width:800px;height:300px;position:absolute" id="screen_obj2" class="screen">').insertBefore("#zero");
 					$('<p>You search the rug and find a key labeled <b>"Room 2"</b></p>').insertBefore("#placeholder").fadeIn(1000);
 					key2_3 = true;
 					solved2_2 = "complete";
@@ -798,7 +807,12 @@ $(document).ready(function() {
 			else if (input == "move stone" && currentroom == "2.2") {
 				if (solved2_2 == false) {
 					$('<p>I mean yeah, if a bucket of water can lift it I guess it can\'t be too heavy.</p>').insertBefore('#placeholder').fadeIn(1000);
+					$("img").detach("#screen_obj");
+					$('<img src="videos/Area2/video_2_2/2_2rockMoved.png" style="width:800px;height:300px;position:absolute" id="screen_obj" class="screen">').insertBefore("#zero");
+					$('<img src="videos/Area2/video_2_2/rug.png" style="width:800px;height:300px;position:absolute" id="screen_obj2" class="screen">').insertBefore("#zero");
+					$('<img src="videos/Area2/video_2_2/2_2guy.gif" style="width:800px;height:300px;position:absolute" id="screen_guy" class="screen">').insertBefore("#zero");
 					solved2_2 = true;
+					stoneMoved = true;
 				} else if (solved2_2 == true || solved2_2 == "complete") {
 					$('<p>It\'s already moved.</p>').insertBefore('#placeholder').fadeIn(1000);
 				}
@@ -1892,36 +1906,95 @@ $(document).ready(function() {
 			//go to room 2.2
 			else if (input == "go through door 1" && currentroom == "area_hub") {
 				$("img").detach(".screen");
-				$('<img src="videos/placeHolder.png" style="width:800px;height:300px;position:absolute" id="screen" class="screen">').insertBefore("#zero");
+				$('<img src="videos/Area2/video_2_2/2_2back.gif" style="width:800px;height:300px;position:absolute" id="screen" class="screen">').insertBefore("#zero");
 				if (beento2_2 == false) {
 					$('<p>You enter a room that is obviously the first of many.<br> Agaist the left wall, there sits a large scale.<br>On one arm, a stone, and on the other, a standard scale platform.<br>In the back right corner, is a small fountain, with a bucket to its side.<br>Finally, under the stone, there lies a rug with a small tag visible beneath.</p>').insertBefore("#placeholder").fadeIn(1000);
-					$('<img src="videos/placeholderEnmy.gif" style="width:800px;height:300px;position:absolute" id="screen_Enmy" class="screen">').insertBefore("#zero");
+					$('<img src="videos/Area2/video_2_2/2_2bucket.png" style="width:800px;height:300px;position:absolute" id="screen_Enmy" class="screen">').insertBefore("#zero");
+					$('<img src="videos/Area2/video_2_2/2_2scale.png" style="width:800px;height:300px;position:absolute" id="screen_obj" class="screen">').insertBefore("#zero");
 					beento2_2 = true;
 				}
 				else {
 					if (bucket_e == false && solved2_2 == false && bucket_f == false) {
+						$('<img src="videos/Area2/video_2_2/2_2scale.png" style="width:800px;height:300px;position:absolute" id="screen_obj" class="screen">').insertBefore("#zero");
 						$("<p>You return to the first challenge room, the bucket remains, the puzzle unsolved.<br>It's as if you've done nothing.</p>").insertBefore("#placeholder").fadeIn(1000);
 						if (buk_health > 0) {
-							$('<img src="videos/placeholderEnmy.gif" style="width:800px;height:300px;position:absolute" id="screen_Enmy" class="screen">').insertBefore("#zero");
+							if (bukFight == true) {
+								$('<img src="videos/Area2/video_2_2/2_2bukFight.gif" style="width:800px;height:300px;position:absolute" id="screen_Enmy" class="screen">').insertBefore("#zero");
+							} else {
+								$('<img src="videos/Area2/video_2_2/2_2bucket.png" style="width:800px;height:300px;position:absolute" id="screen_Enmy" class="screen">').insertBefore("#zero");
+							}
 						} else {
 
 						}
 					} else if (bucket_e == true && solved2_2 == false) {
+						$('<img src="videos/Area2/video_2_2/2_2scale.png" style="width:800px;height:300px;position:absolute" id="screen_obj" class="screen">').insertBefore("#zero");
 						$("<p>You walk back into the first challenge room,<br>You have the pieces to solve this puzzle, but you haven't<br>Why is that?</p>").insertBefore("#placeholder").fadeIn(1000);
 					} else if (bucket_f == true && solved2_2 == false) {
+						$('<img src="videos/Area2/video_2_2/2_2scale.png" style="width:800px;height:300px;position:absolute" id="screen" class="screen_true">').insertBefore("#zero");
 						$("<p>Come on now. The bucket is full. One command will complete this puzzle<br>What are you waiting for?!</p>").insertBefore("#placeholder").fadeIn(1000);
 					} else if (bucket_e == true && solved2_2 == true) {
+						//solved by stone
+						$('<img src="videos/Area2/video_2_2/2_2rockMoved.png" style="width:800px;height:300px;position:absolute" id="screen_obj" class="screen">').insertBefore("#zero");
+						$('<img src="videos/Area2/video_2_2/rug.png" style="width:800px;height:300px;position:absolute" id="screen_obj2" class="screen">').insertBefore("#zero");
 						$("<p>This room is done, I guess there could be a reason to be back here, but that's on you.</p>").insertBefore("#placeholder").fadeIn(1000);
 					} else if (bucket_f == true && solved2_2 == true) {
+						//solved by stone
+						$('<img src="videos/Area2/video_2_2/2_2rockMoved.png" style="width:800px;height:300px;position:absolute" id="screen_obj" class="screen">').insertBefore("#zero");
+						$('<img src="videos/Area2/video_2_2/rug.png" style="width:800px;height:300px;position:absolute" id="screen_obj2" class="screen">').insertBefore("#zero");
 						$("<p>You're back in the first challenge room<br>All you\'re missing is the key</p>").insertBefore("#placeholder").fadeIn(1000);
 					} else if (bucket_f == true && solved2_2 == "complete") {
+						//solved by stone
+						$('<img src="videos/Area2/video_2_2/2_2rockMoved.png" style="width:800px;height:300px;position:absolute" id="screen_obj" class="screen">').insertBefore("#zero");
+						$('<img src="videos/Area2/video_2_2/rugSearched.png" style="width:800px;height:300px;position:absolute" id="screen_obj2" class="screen">').insertBefore("#zero");
 						$("<p>You're back in the first challenge room<br>There's nothing left to do here, but you're back.</p>").insertBefore("#placeholder").fadeIn(1000);
 					} else if (bucket_e == true && solved2_2 == "complete") {
+						//solved by stone
+						$('<img src="videos/Area2/video_2_2/2_2rockMoved.png" style="width:800px;height:300px;position:absolute" id="screen_obj" class="screen">').insertBefore("#zero");
+						$('<img src="videos/Area2/video_2_2/rugSearched.png" style="width:800px;height:300px;position:absolute" id="screen_obj2" class="screen">').insertBefore("#zero");
 						$("<p>You're back in the first challenge room<br>I guess you could fill the bucket, but everything else is done.</p>").insertBefore("#placeholder").fadeIn(1000);
-					} else {
+					} else if (bucket_e == false && bucket_f == false && solved2_2 == true && stoneMoved == true) {
+						//solved by stone
+						$('<img src="videos/Area2/video_2_2/2_2rockMoved.png" style="width:800px;height:300px;position:absolute" id="screen_obj" class="screen">').insertBefore("#zero");
+						$('<img src="videos/Area2/video_2_2/rug.png" style="width:800px;height:300px;position:absolute" id="screen_obj2" class="screen">').insertBefore("#zero");
+						if (bukFight == false) {
+							$('<img src="videos/Area2/video_2_2/2_2bucket.png" style="width:800px;height:300px;position:absolute" id="screen_Enmy" class="screen">').insertBefore("#zero");
+						} else if (bukFight == true && buk_health > 0) {
+							$('<img src="videos/Area2/video_2_2/2_2bukFight.gif" style="width:800px;height:300px;position:absolute" id="screen_Enmy" class="screen">').insertBefore("#zero");
+						} else {
+							//and by bucket
+							$('img').detach('#screen_obj');
+							$('<img src="videos/Area2/video_2_2/scaleMoved.png" style="width:800px;height:300px;position:absolute" id="screen_obj" class="screen">').insertBefore("#zero");
+						}
+						$("<p>This room is done, I guess there could be a reason to be back here, but that's on you.</p>").insertBefore("#placeholder").fadeIn(1000);
+					} else if (bucket_e == false && bucket_f == false && solved2_2 == true && stoneMoved == false) {
+						//solved by bucket
+						$('<img src="videos/Area2/video_2_2/scaleMoved.png" style="width:800px;height:300px;position:absolute" id="screen_obj" class="screen">').insertBefore("#zero");
+						$('<img src="videos/Area2/video_2_2/rug.png" style="width:800px;height:300px;position:absolute" id="screen_obj2" class="screen">').insertBefore("#zero");
+						$("<p>This room is done, I guess there could be a reason to be back here, but that's on you.</p>").insertBefore("#placeholder").fadeIn(1000);
+					} else if (bucket_e == false && bucket_f == false && solved2_2 == "complete" && stoneMoved == false) {
+						//solved by bucket
+						$('<img src="videos/Area2/video_2_2/scaleMoved.png" style="width:800px;height:300px;position:absolute" id="screen_obj" class="screen">').insertBefore("#zero");
+						$('<img src="videos/Area2/video_2_2/rugSearched.png" style="width:800px;height:300px;position:absolute" id="screen_obj2" class="screen">').insertBefore("#zero");
+						$("<p>You're back in the first challenge room<br>There's nothing left to do here, but you're back.</p>").insertBefore("#placeholder").fadeIn(1000);
+					} else if (bucket_e == false && bucket_f == false && solved2_2 == "complete" && stoneMoved == true) {
+						//solved by stone
+						$('<img src="videos/Area2/video_2_2/2_2rockMoved.png" style="width:800px;height:300px;position:absolute" id="screen_obj" class="screen">').insertBefore("#zero");
+						if (bukFight == false) {
+							$('<img src="videos/Area2/video_2_2/2_2bucket.png" style="width:800px;height:300px;position:absolute" id="screen_Enmy" class="screen">').insertBefore("#zero");
+						} else if (bukFight == true && buk_health > 0) {
+							$('<img src="videos/Area2/video_2_2/2_2bukFight.gif" style="width:800px;height:300px;position:absolute" id="screen_Enmy" class="screen">').insertBefore("#zero");
+						} else {
+							//and by bucket
+							$('img').detach('#screen_obj');
+							$('<img src="videos/Area2/video_2_2/scaleMoved.png" style="width:800px;height:300px;position:absolute" id="screen_obj" class="screen">').insertBefore("#zero");
+						}
+						$('<img src="videos/Area2/video_2_2/rugSearched.png" style="width:800px;height:300px;position:absolute" id="screen_obj2" class="screen">').insertBefore("#zero");
+						$("<p>You're back in the first challenge room<br>There's nothing left to do here, but you're back.</p>").insertBefore("#placeholder").fadeIn(1000);
+					}  else {
 						$("<p>You're back in the first challenge room, if you\'re seeing this, you have done such a series of choices that I didn't write specific code for you.<br>Sorry, but also well done.</p>").insertBefore("#placeholder").fadeIn(1000);
 					}
 				}
+				$('<img src="videos/Area2/video_2_2/2_2guy.gif" style="width:800px;height:300px;position:absolute" id="screen_guy" class="screen">').insertBefore("#zero");
 				currentroom = "2.2";
 			}
 
@@ -2329,7 +2402,7 @@ $(document).ready(function() {
 		}
 
 		//heart display
-		if (health > -100) {			
+		if (health > -100) {
 			if (health == 95) {
 				$("img").detach("#health")
 				$('<img src="heart/heart 95.png" style="width:100px;height:100px" id="health">').insertBefore('#placeholder_dos');
@@ -2535,9 +2608,9 @@ $(document).ready(function() {
 				$('#location_A1E').fadeIn(500);
 				$(".Map_A1E").fadeIn(500);
 			}
-			
+
 		}
-		//area 2: pantheon area 
+		//area 2: pantheon area
 		else if (currentArea == 2) {
 			if (currentroom == "corridor_2") {
 				$('.A1').fadeOut(500);
