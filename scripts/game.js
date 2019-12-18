@@ -2403,84 +2403,90 @@ $(document).ready(function() {
 
 		//heart display
 		if (health > -100) {
-			if (health == 95) {
+			if (health <= 95 && health > 90) {
 				$("img").detach("#health")
 				$('<img src="heart/heart 95.png" style="width:100px;height:100px" id="health">').insertBefore('#placeholder_dos');
 			}
-			else if (health == 90) {
+			else if (health <= 95 && health > 90) {
 				$("img").detach("#health")
 				$('<img src="heart/heart 90.png" style="width:100px;height:100px" id="health">').insertBefore('#placeholder_dos');
 			}
-			else if (health == 85) {
+			else if (health <= 90 && health > 85) {
 				$("img").detach("#health")
 				$('<img src="heart/heart 85.png" style="width:100px;height:100px" id="health">').insertBefore('#placeholder_dos');
 			}
-			else if (health == 80) {
+			else if (health <= 85 && health > 80) {
 				$("img").detach("#health")
 				$('<img src="heart/heart 80.png" style="width:100px;height:100px" id="health">').insertBefore('#placeholder_dos');
 			}
-			else if (health == 75) {
+			else if (health <= 80 && health > 75) {
 				$("img").detach("#health")
 				$('<img src="heart/heart 75.png" style="width:100px;height:100px" id="health">').insertBefore('#placeholder_dos');
 			}
-			else if (health == 70) {
+			else if (health <= 75 && health > 70) {
 				$("img").detach("#health")
 				$('<img src="heart/heart 70.png" style="width:100px;height:100px" id="health">').insertBefore('#placeholder_dos');
 			}
-			else if (health == 65) {
+			else if (health <= 70 && health > 65) {
 				$("img").detach("#health")
 				$('<img src="heart/heart 65.png" style="width:100px;height:100px" id="health">').insertBefore('#placeholder_dos');
 			}
-			else if (health == 60) {
+			else if (health <= 65 && health > 60) {
 				$("img").detach("#health")
 				$('<img src="heart/heart 60.png" style="width:100px;height:100px" id="health">').insertBefore('#placeholder_dos');
 			}
-			else if (health == 55) {
+			else if (health <= 60 && health > 55) {
 				$("img").detach("#health")
 				$('<img src="heart/heart 55.png" style="width:100px;height:100px" id="health">').insertBefore('#placeholder_dos');
 			}
-			else if (health == 50) {
+			else if (health <= 55 && health > 50) {
 				$("img").detach("#health")
 				$('<img src="heart/heart 50.png" style="width:100px;height:100px" id="health">').insertBefore('#placeholder_dos');
 			}
-			else if (health == 45) {
+			else if (health <= 50 && health > 45) {
 				$("img").detach("#health")
 				$('<img src="heart/heart 45.png" style="width:100px;height:100px" id="health">').insertBefore('#placeholder_dos');
 			}
-			else if (health == 40) {
+			else if (health <= 45 && health > 40) {
 				$("img").detach("#health")
 				$('<img src="heart/heart 40.png" style="width:100px;height:100px" id="health">').insertBefore('#placeholder_dos');
 			}
-			else if (health == 35) {
+			else if (health <= 40 && health > 35) {
 				$("img").detach("#health")
 				$('<img src="heart/heart 35.png" style="width:100px;height:100px" id="health">').insertBefore('#placeholder_dos');
 			}
-			else if (health == 30) {
+			else if (health <= 35 && health > 30) {
 				$("img").detach("#health")
 				$('<img src="heart/heart 30.png" style="width:100px;height:100px" id="health">').insertBefore('#placeholder_dos');
 			}
-			else if (health == 25) {
+			else if (health <= 30 && health > 25) {
 				$("img").detach("#health")
 				$('<img src="heart/heart 25.png" style="width:100px;height:100px" id="health">').insertBefore('#placeholder_dos');
 			}
-			else if (health == 20) {
+			else if (health <= 25 && health > 20) {
 				$("img").detach("#health")
 				$('<img src="heart/heart 20.png" style="width:100px;height:100px" id="health">').insertBefore('#placeholder_dos');
 			}
-			else if (health == 15) {
+			else if (health <= 20 && health > 15) {
 				$("img").detach("#health")
 				$('<img src="heart/heart 15.png" style="width:100px;height:100px" id="health">').insertBefore('#placeholder_dos');
 			}
-			else if (health == 10) {
+			else if (health <= 15 && health > 10) {
 				$("img").detach("#health")
 				$('<img src="heart/heart 10.png" style="width:100px;height:100px" id="health">').insertBefore('#placeholder_dos');
 			}
-			else if (health == 5) {
+			else if (health <= 10 && health > 5) {
 				$("img").detach("#health")
 				$('<img src="heart/heart 5.png" style="width:100px;height:100px" id="health">').insertBefore('#placeholder_dos');
 			}
 			else if (health > 100) {
 				health = 100;
+				$("img").detach("#health")
+				$('<img src="heart/heart start.png" style="width:100px;height:100px" id="health">').insertBefore('#placeholder_dos');
+			}
+			else if (health <= 100 && health > 95) {
+				$("img").detach("#health")
+				$('<img src="heart/heart start.png" style="width:100px;height:100px" id="health">').insertBefore('#placeholder_dos');
 			}
 		}
 		//end of health display
@@ -2551,7 +2557,7 @@ $(document).ready(function() {
 				listed_ic = true;
 			}
 			if (icecream == "ate" && listed_ic == true) {
-				$('#iceC').fadeOut(1000);
+				$('#IceC').fadeOut(1000);
 			}
 			if (banana == true && listed_banana == false) {
 				$('<p id="banana">Banana</p>').insertBefore('#inv_food_bottom');
