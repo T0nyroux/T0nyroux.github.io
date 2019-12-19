@@ -109,8 +109,16 @@ var ary_stndrd = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18,
 var ary_player = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 function ATK(ary_stndrd) { return ary_stndrd[Math.floor(Math.random() * ary_stndrd.length)]; };
 function ATK_P(ary_player) { return ary_player[Math.floor(Math.random() * ary_player.length)]; };
-var ary_Insult = ["simpleton", "degenerate", "buffoon", "ingrate", "heretic", "cretin", "cow", "pillock", "mumpsimus", "ninnyhammer", "bobolyne", "dalcop"]
+var ary_Insult = ["simpleton", "degenerate", "buffoon", "ingrate", "heretic", "cretin", "cow", "pillock", "mumpsimus", "ninnyhammer", "bobolyne", "dalcop", "plebian", "imbecile", "twit", "nincompoop", "tosser", "wazzock", "absolute muppet", fiddly(), "square", "chimp", "neandrathal", "barbarian", "hobgoblin", "absolute egg", "trogldyte", "biclops", "donut", "goose"]
 function returnInsult(ary_Insult) {return ary_Insult[Math.floor(Math.random() * ary_Insult.length)];}
+function fiddly() {
+	fiddler = Math.floor(Math.random() * 4);
+	if (fiddler == 1) {
+		return "Fiddily-Faddily-Biddily-Baddily-Diddily-Doodily-Hiddily-Hoodily kind of person";
+	} else {
+		return "goose"
+	}
+}
 //
 //
 //
