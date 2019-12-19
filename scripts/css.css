@@ -625,6 +625,10 @@ input:focus {
 	z-index: -1;
 }
 
+#screen_guy {
+	z-index: 3;
+}
+
 .death {
 	z-index: 0;
 	position: absolute;

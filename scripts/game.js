@@ -616,6 +616,8 @@ $(document).ready(function() {
 					if (banana == true || peel == true) {
 						$('<p>You already got a banana.<br>Don\'t be greedy</p>').insertBefore('#placeholder').fadeIn(1000);
 					} else if (banana == false) {
+						$('img').detach('#screen_obj');
+						$('<img src="videos/Area2/video_2_3/2_3nobanana.png" style="width:800px;height:300px;position:absolute" id="screen_obj" class="screen">').insertBefore("#zero");
 						banana = true;
 						$('<p>You pick up a banana, good job, maybe it can help you with some particular<br>ahem...<br>gnoblin.</p>').insertBefore('#placeholder').fadeIn(1000);
 					}
@@ -627,6 +629,7 @@ $(document).ready(function() {
 			else if (input == "take hammer" || input == "take sledgehammer" || input == "take sledge hammer") {
 				if (currentroom == "2.3") {
 					if (hammer == false && GnomeHealth != 1) {
+						$('img').detach('#screen_obj2');
 						$('<p>You took the Gnome\'s hammer. dang it\'s heavy.<br>Almost like it\'s begging you to <i>tear down a wall with it.</i></p>').insertBefore('#placeholder').fadeIn(1000);
 						hammer = true;
 					} else if (hammer == false && GnomeHealth > 0) {
@@ -676,9 +679,13 @@ $(document).ready(function() {
 			else if (input == "place banana" || input == "place peel" || input == "place banana peel") {
 				if (currentroom == "2.3") {
 					if (peel == true) {
+						$('img').detach('#screen_Enmy');
 						peel = "used";
 						GnomeTrip = true;
+						$('<img src="videos/Area2/video_2_3/2_3hammerFall.gif" style="width:800px;height:300px;position:absolute" id="screen_obj2" class="screen">').insertBefore("#zero");
+						$('<img src="videos/Area2/video_2_3/2_3placebanana.png" style="width:800px;height:300px;position:absolute" id="screen_obj" class="screen">').insertBefore("#zero");
 						$('<p>You set the banana peel down and the Gnoblin, so angry that I keep calling him a gnoblin, gets distracted and slips.<br>His sledgehammer has been dropped and he looks <i>pretty defenseless</i></p>').insertBefore('#placeholder').fadeIn(1000);
+						$('<img src="videos/Area2/video_2_3/2_3gnomeTrip.gif" style="width:800px;height:300px;position:absolute" id="screen_Enmy" class="screen">').insertBefore("#zero");
 					} else if (banana == true) {
 						$('<p>Really? A perfectly good banana? Atleast eat it first</p>').insertBefore('#placeholder').fadeIn(1000);
 					} else if (peel == false && banana == false) {
@@ -1199,7 +1206,8 @@ $(document).ready(function() {
 						$('<p>He dodged with shocking grace.</p>').insertBefore('#placeholder').fadeIn(1000);
 					}
 				} else if (GnomeTrip == true) {
-					$('#screen_Enmy').fadeOut(1000);
+					$('img').detach('#screen_Enmy');
+					$('<img src="videos/Area2/video_2_3/2_3gnomedie.gif" style="width:800px;height:300px;position:absolute" id="screen_Enmy" class="screen">').insertBefore("#zero");
 					GnomeHealth = 0;
 					$('<p>You killed the gnome!<br>now his hammer lays untouched and all that remains of him are his scattered fragments</p>').insertBefore('#placeholder').fadeIn(1000);
 				}
@@ -1214,7 +1222,8 @@ $(document).ready(function() {
 						$('<p>He practically danced around the whip tails, weird.</p>').insertBefore('#placeholder').fadeIn(1000);
 					}
 				} else if (GnomeTrip == true) {
-					$('#screen_Enmy').fadeOut(1000);
+					$('img').detach('#screen_Enmy');
+					$('<img src="videos/Area2/video_2_3/2_3gnomedie.gif" style="width:800px;height:300px;position:absolute" id="screen_Enmy" class="screen">').insertBefore("#zero");
 					GnomeHealth = 0;
 					$('<p>You killed the gnome!<br>now his hammer lays untouched and all that remains of him are his scattered fragments</p>').insertBefore('#placeholder').fadeIn(1000);
 				}
@@ -1229,8 +1238,6 @@ $(document).ready(function() {
 						$('<p>He dodged with shocking grace.</p>').insertBefore('#placeholder').fadeIn(1000);
 					}
 				} else if (GnomeTrip == true) {
-					$('#screen_Enmy').fadeOut(1000);
-					GnomeHealth = 0;
 					$('<p>No, we aren\'t doing that anymore, I get it the tray is funny,<br>but I\'m over it, Jenny is over it, we\'re done with the tray, use something else.</p>').insertBefore('#placeholder').fadeIn(1000);
 				}
 			}
@@ -1244,7 +1251,70 @@ $(document).ready(function() {
 						$('<p>He spun the hammer <i>so</i> fast that he deflected the bullet like a light saber, I told you this gnoblin is scary.</p>').insertBefore('#placeholder').fadeIn(1000);
 					}
 				} else if (GnomeTrip == true) {
-					$('#screen_Enmy').fadeOut(1000);
+					$('img').detach('#screen_Enmy');
+					$('<img src="videos/Area2/video_2_3/2_3gnomedie.gif" style="width:800px;height:300px;position:absolute" id="screen_Enmy" class="screen">').insertBefore("#zero");
+					GnomeHealth = 0;
+					health -= 5;
+					$('<p>Listen dude, the gun is a bit overkill, the clay practically explodes and the fragments scratch you up for 5 damage<br>now his hammer lays untouched and all that remains of him are his scattered fragments</p>').insertBefore('#placeholder').fadeIn(1000);
+				}
+			}
+			else if (input == "attack gnoblin with knife" && currentroom == "2.3" && GnomeHealth > 0 && knife == true) {
+				if (GnomeTrip == false) {
+					EnmyDam = Math.ceil(Math.random() * 20);
+					if (EnmyDam == 20) {
+						health -= 20;
+						$('<p>Oh dang, he did 20 damage, go figure a 15 lb. sledgehammer is bad news.</p>').insertBefore('#placeholder').fadeIn(1000);
+					} else {
+						$('<p>He dodged with shocking grace.</p>').insertBefore('#placeholder').fadeIn(1000);
+					}
+				} else if (GnomeTrip == true) {
+					$('img').detach('#screen_Enmy');
+					$('<img src="videos/Area2/video_2_3/2_3gnomedie.gif" style="width:800px;height:300px;position:absolute" id="screen_Enmy" class="screen">').insertBefore("#zero");
+					GnomeHealth = 0;
+					$('<p>You killed the gnome!<br>now his hammer lays untouched and all that remains of him are his scattered fragments</p>').insertBefore('#placeholder').fadeIn(1000);
+				}
+			}
+			else if (input == "attack gnoblin with whip" && currentroom == "2.3" && GnomeHealth > 0 && whip == true) {
+				if (GnomeTrip == false) {
+					EnmyDam = Math.ceil(Math.random() * 20);
+					if (EnmyDam == 20) {
+						health -= 20;
+						$('<p>Ouch, he did 20 damage, a 15 lb. sledgehammer is painful.</p>').insertBefore('#placeholder').fadeIn(1000);
+					} else {
+						$('<p>He practically danced around the whip tails, weird.</p>').insertBefore('#placeholder').fadeIn(1000);
+					}
+				} else if (GnomeTrip == true) {
+					$('img').detach('#screen_Enmy');
+					$('<img src="videos/Area2/video_2_3/2_3gnomedie.gif" style="width:800px;height:300px;position:absolute" id="screen_Enmy" class="screen">').insertBefore("#zero");
+					GnomeHealth = 0;
+					$('<p>You killed the gnome!<br>now his hammer lays untouched and all that remains of him are his scattered fragments</p>').insertBefore('#placeholder').fadeIn(1000);
+				}
+			}
+			else if (input == "attack gnoblin with tray" && currentroom == "2.3" && GnomeHealth > 0 && lunchtray == true) {
+				if (GnomeTrip == false) {
+					EnmyDam = Math.ceil(Math.random() * 20);
+					if (EnmyDam == 20) {
+						health -= 20;
+						$('<p>Well then, he did 20 damage, I\'m not surprised that a 15 lb. sledgehammer is bad news.</p>').insertBefore('#placeholder').fadeIn(1000);
+					} else {
+						$('<p>He dodged with shocking grace.</p>').insertBefore('#placeholder').fadeIn(1000);
+					}
+				} else if (GnomeTrip == true) {
+					$('<p>No, we aren\'t doing that anymore, I get it the tray is funny,<br>but I\'m over it, Jenny is over it, we\'re done with the tray, use something else.</p>').insertBefore('#placeholder').fadeIn(1000);
+				}
+			}
+			else if (input == "attack gnoblin with gun" && currentroom == "2.3" && GnomeHealth > 0) {
+				if (GnomeTrip == false) {
+					EnmyDam = Math.ceil(Math.random() * 20);
+					if (EnmyDam == 20) {
+						health -= 20;
+						$('<p>Oh dang, he did 20 damage, go figure a 15 lb. sledgehammer is bad news.</p>').insertBefore('#placeholder').fadeIn(1000);
+					} else {
+						$('<p>He spun the hammer <i>so</i> fast that he deflected the bullet like a light saber, I told you this gnoblin is scary.</p>').insertBefore('#placeholder').fadeIn(1000);
+					}
+				} else if (GnomeTrip == true) {
+					$('img').detach('#screen_Enmy');
+					$('<img src="videos/Area2/video_2_3/2_3gnomedie.gif" style="width:800px;height:300px;position:absolute" id="screen_Enmy" class="screen">').insertBefore("#zero");
 					GnomeHealth = 0;
 					health -= 5;
 					$('<p>Listen dude, the gun is a bit overkill, the clay practically explodes and the fragments scratch you up for 5 damage<br>now his hammer lays untouched and all that remains of him are his scattered fragments</p>').insertBefore('#placeholder').fadeIn(1000);
@@ -1901,9 +1971,10 @@ $(document).ready(function() {
 					$('<p>But it\'s still locked</p>').insertBefore('#placeholder').fadeIn(1000);
 				} else {
 					$("img").detach(".screen");
-					$('<img src="videos/placeHolder.png" style="width:800px;height:300px;position:absolute" id="screen" class="screen">').insertBefore("#zero");
+					$('<img src="videos/Area2/video_2_3/2_3back.gif" style="width:800px;height:300px;position:absolute" id="screen" class="screen">').insertBefore("#zero");
 					if (beento2_3 == false) {
-						$('<img src="videos/placeholderEnmy.gif" style="width:800px;height:300px;position:absolute" id="screen_Enmy" class="screen">').insertBefore("#zero");
+						$('<img src="videos/Area2/video_2_3/2_3banana.png" style="width:800px;height:300px;position:absolute" id="screen_obj" class="screen">').insertBefore("#zero");
+						$('<img src="videos/Area2/video_2_3/2_3gnome.gif" style="width:800px;height:300px;position:absolute" id="screen_Enmy" class="screen">').insertBefore("#zero");
 						$("<p id='Gnome1'>You enter another of the challenge rooms,<br>In one corner, you see a small pile of bananas<br>In the other, a gnoblin wi-</p>").insertBefore('#placeholder').fadeIn(1000);
 						beento2_3 = true;
 						timedDialogue = setTimeout(function () {
@@ -1913,23 +1984,42 @@ $(document).ready(function() {
 							$("<p>Fine. A gnome. Weilding a 15 pound sledgehammer (keep in mind even 10 pounds is alot for a sledgehammer)<br>Like really, he\'s just a 1-foot, standard clay lawn gnome, but he\'s very good with that hammer. It\'s scary.</p>").insertBefore('#placeholder').fadeIn(1000);
 							$("#console").scrollTop($("#console")[0].scrollHeight);}, 4000);
 					} else {
-						if (GnomeHealth > 0 && banana == false && peel == false) {
-							$("<p>Everything is still here, the gnoblin lives, the bananas remain.</p>").insertBefore('#placeholder').fadeIn(1000);
-							$('<img src="videos/placeholderEnmy.gif" style="width:800px;height:300px;position:absolute" id="screen_Enmy" class="screen">').insertBefore("#zero");
+						if (GnomeHealth > 0 && banana == false && peel != true) {
+							if (GnomeTrip == false) {
+								$("<p>Everything is still here, the gnoblin lives, the bananas remain.</p>").insertBefore('#placeholder').fadeIn(1000);
+								$('<img src="videos/Area2/video_2_3/2_3banana.png" style="width:800px;height:300px;position:absolute" id="screen_obj" class="screen">').insertBefore("#zero");
+								$('<img src="videos/Area2/video_2_3/2_3gnome.gif" style="width:800px;height:300px;position:absolute" id="screen_Enmy" class="screen">').insertBefore("#zero");
+							} else if (GnomeTrip == true) {
+								$('<img src="videos/Area2/video_2_3/2_3hammerFallen.png" style="width:800px;height:300px;position:absolute" id="screen_obj2" class="screen">').insertBefore("#zero");
+								$('<img src="videos/Area2/video_2_3/2_3gnomeTripped.png" style="width:800px;height:300px;position:absolute" id="screen_Enmy" class="screen">').insertBefore("#zero");
+								$("<p>Just kill the gnoblin already, end his suffering.</p>").insertBefore('#placeholder').fadeIn(1000);
+								$('<img src="videos/Area2/video_2_3/2_3nobanana.png" style="width:800px;height:300px;position:absolute" id="screen_obj" class="screen">').insertBefore("#zero");
+								$('<img src="videos/Area2/video_2_3/2_3placebanana.png" style="width:800px;height:300px;position:absolute" id="screen_obj" class="screen">').insertBefore("#zero");
+							}
 						} else if (GnomeHealth > 0 && peel == true) {
 							$("<p>The Gnoblin is alive, and you have the right tools, just kill him.</p>").insertBefore('#placeholder').fadeIn(1000);
-							$('<img src="videos/placeholderEnmy.gif" style="width:800px;height:300px;position:absolute" id="screen_Enmy" class="screen">').insertBefore("#zero");
+							$('<img src="videos/Area2/video_2_3/2_3nobanana.png" style="width:800px;height:300px;position:absolute" id="screen_obj" class="screen">').insertBefore("#zero");
+							$('<img src="videos/Area2/video_2_3/2_3gnome.gif" style="width:800px;height:300px;position:absolute" id="screen_Enmy" class="screen">').insertBefore("#zero");
 						} else if (GnomeHealth > 0 && banana == true) {
 							$("<p>You don't have what you need to beat the gnoblin-gnome yet, but go ahead, keep fighting him I dare you.</p>").insertBefore('#placeholder').fadeIn(1000);
-							$('<img src="videos/placeholderEnmy.gif" style="width:800px;height:300px;position:absolute" id="screen_Enmy" class="screen">').insertBefore("#zero");
+							$('<img src="videos/Area2/video_2_3/2_3nobanana.png" style="width:800px;height:300px;position:absolute" id="screen_obj" class="screen">').insertBefore("#zero");
+							$('<img src="videos/Area2/video_2_3/2_3gnome.gif" style="width:800px;height:300px;position:absolute" id="screen_Enmy" class="screen">').insertBefore("#zero");
 						} else if (GnomeHealth <= 0 && hammer == false) {
 							$("<p>You killed the Gnoblin...<br>good he can't correct me anymore...<br>All that's left is his beefy hammer boi.</p>").insertBefore('#placeholder').fadeIn(1000);
+							$('<img src="videos/Area2/video_2_3/2_3hammerFallen.png" style="width:800px;height:300px;position:absolute" id="screen_obj2" class="screen">').insertBefore("#zero");
+							$('<img src="videos/Area2/video_2_3/2_3gnomedead.png" style="width:800px;height:300px;position:absolute" id="screen_Enmy" class="screen">').insertBefore("#zero");
+							$('<img src="videos/Area2/video_2_3/2_3placebanana.png" style="width:800px;height:300px;position:absolute" id="screen_obj" class="screen">').insertBefore("#zero");
+							$('<img src="videos/Area2/video_2_3/2_3nobanana.png" style="width:800px;height:300px;position:absolute" id="screen_obj" class="screen">').insertBefore("#zero");
 						} else if (GnomeHealth <= 0 && hammer == true) {
-							$("<p>THere's nothing left here but the shattered remains of your foe<br>I can still hear his faint gnoblin-y screams as if he were here.<br>How sad.</p>").insertBefore('#placeholder').fadeIn(1000);
+							$("<p>There's nothing left here but the shattered remains of your foe<br>I can still hear his faint gnoblin-y screams as if he were here.<br>How sad.</p>").insertBefore('#placeholder').fadeIn(1000);
+							$('<img src="videos/Area2/video_2_3/2_3nobanana.png" style="width:800px;height:300px;position:absolute" id="screen_obj" class="screen">').insertBefore("#zero");
+							$('<img src="videos/Area2/video_2_3/2_3placebanana.png" style="width:800px;height:300px;position:absolute" id="screen_obj" class="screen">').insertBefore("#zero");
+							$('<img src="videos/Area2/video_2_3/2_3gnomedead.png" style="width:800px;height:300px;position:absolute" id="screen_Enmy" class="screen">').insertBefore("#zero");
 						} else {
 							$("<p>I don't know what you did, but you got to the last resort else statement, the code doesn't know what to do with you.</p>").insertBefore('#placeholder').fadeIn(1000);
 						}
 					}
+					$('<img src="videos/Area2/video_2_3/2_3guy.gif" style="width:800px;height:300px;position:absolute;margin-top:-50px;" id="screen_guy" class="screen">').insertBefore("#zero");
 					currentroom = "2.3"
 				}
 			}
