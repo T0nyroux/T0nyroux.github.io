@@ -1274,8 +1274,8 @@ $(document).ready(function() {
 				}
 			}
 
-			else if (input == "attack self with knife") {
-				if (knife == true) {
+			else if (input == "attack self with hammer" || input == "attack self with sledgehammer" || input == "attack self with sledge hammer") {
+				if (hammer == true && health <= 15) {
 					currentArea = -1;
 					$("audio").detach(".death");
 					$("img").detach(".death");
@@ -1284,6 +1284,30 @@ $(document).ready(function() {
 					$("#container").fadeOut(3000, function() {
 						$("#killself").fadeIn(3000);
 					});
+				}
+				else if (hammer == true && health > 15) {
+					$('<p>You lose 15 HP, why did you do that?</p>').insertBefore("#placeholder").fadeIn(1000);
+					health -= 15;
+				}
+				else {
+					$('<p>You can\'t do that.</p>').insertBefore("#placeholder").fadeIn(1000);
+				}
+			}
+
+			else if (input == "attack self with knife") {
+				if (knife == true && health <= 10) {
+					currentArea = -1;
+					$("audio").detach(".death");
+					$("img").detach(".death");
+					$("video").detach(".death");
+					$(".death").fadeOut(3000);
+					$("#container").fadeOut(3000, function() {
+						$("#killself").fadeIn(3000);
+					});
+				}
+				else if (knife == true && health > 10) {
+					$('<p>You lose 10 HP, are you good?</p>').insertBefore("#placeholder").fadeIn(1000);
+					health -= 10;
 				}
 				else {
 					$('<p>You can\'t do that.</p>').insertBefore("#placeholder").fadeIn(1000);
@@ -1291,7 +1315,7 @@ $(document).ready(function() {
 			}
 
 			else if (input == "attack self with whip") {
-				if (whip == true) {
+				if (whip == true && health <= 5) {
 					currentArea = -1;
 					$("audio").detach(".death");
 					$("img").detach(".death");
@@ -1300,6 +1324,10 @@ $(document).ready(function() {
 					$("#container").fadeOut(3000, function() {
 						$("#killself").fadeIn(3000);
 					});
+				}
+				else if (whip == true && health > 5) {
+					$('<p>You lose 5 HP, how did you even manage to whip yourself?</p>').insertBefore("#placeholder").fadeIn(1000);
+					health -= 5;
 				}
 				else {
 					$('<p>You can\'t do that.</p>').insertBefore("#placeholder").fadeIn(1000);
@@ -1326,149 +1354,6 @@ $(document).ready(function() {
 		}
 		//
 		//end attack
-		//
-
-		//
-		//inventory
-		//
-		else if (input.indexOf("inventory") > -1) {
-			if (input == "inventory") {
-
-				//paperclips
-				if (paperclip == true) {
-					pclip = "Paper Clip<br />";
-				}
-				else {
-					pclip = "";
-				}
-				//
-
-				//dead bugs
-				if (deadbugs == true) {
-					dbugs = "Dead Bugs<br />";
-				}
-				else {
-					dbugs = "";
-				}
-				//
-
-				//lunch tray
-				if (lunchtray == true) {
-					ltray = "Lunch Tray<br />";
-				}
-				else {
-					ltray = "";
-				}
-				//
-
-				//torch
-				if (torch == true) {
-					tch = "Torch<br />";
-				}
-				else {
-					tch = "";
-				}
-				//
-
-				//burnt torch
-				if (burnttorch == true) {
-					btch = "Burnt torch<br />";
-				}
-				else if (burnttorch == false) {
-					btch = "";
-				};
-				//
-
-				//note
-				if (note == true) {
-					nt = "Note from Captors<br />";
-				}
-				else {
-					nt = "";
-				}
-				//
-
-				//ice cream
-				if (icecream == true) {
-					icre = "Ice Cream<br />";
-				}
-				else {
-					icre = "";
-				}
-
-				//hat
-				if (hat == true) {
-					ht = "Hat<br />";
-				}
-				else {
-					ht = "";
-				}
-				//
-
-				//knife
-				if (knife == true) {
-					knf = "Knife<br />";
-				}
-				else {
-					knf = "";
-				}
-				//
-
-				//whip
-				if (whip == true) {
-					whp = "Whip<br />";
-				}
-				else {
-					whp = "";
-				}
-				//
-
-				//key
-				if (key_1 == true) {
-					ky_1 = "Key<br />";
-				}
-				else if (key_1 == false || key_1 == "used") {
-					ky_1 = "";
-				};
-				//
-
-				//powder
-				if (powder == true) {
-					powd = "Strange Powder<br />";
-				}
-				else {
-					powd = "";
-				}
-				//
-
-				//bucket
-				if (bucket_e == true) {
-					buk = "empty bucket";
-				} else if (bucket_f == true) {
-					buk = "bucket of water";
-				} else {
-					buk = "";
-				}
-				//
-
-				//key2_3
-				if(key2_3 == true){
-					ky2_3 = 'a key labeled "2"';
-				} else {
-					ky2_3 = "";
-				}
-
-				if (pclip == "" && dbugs == "" && ltray == "") {
-					$('<p>Inventory:<br /><i>There is nothing in your inventory</i></p>').insertBefore("#placeholder").fadeIn(1000);
-				}
-				else {
-					 $('<p>Inventory:<br />' + pclip + dbugs + ltray + tch + btch + nt + ht + whp + knf + ky_1 + powd + icre + buk + ky2_3 + '</p>').insertBefore("#placeholder").fadeIn(1000);
-				}
-			}
-			else $('<p>I don\'t understand "' + input + '"</p>').insertBefore("#placeholder").fadeIn(1000);
-		}
-		//
-		//end inventory
 		//
 
 		//
