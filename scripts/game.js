@@ -345,6 +345,11 @@ $(document).ready(function() {
 		//end variable edit
 		//
 
+		//dino clone
+		else if (input.indexOf("dinosaur") > -1) {
+			$('<p><a href="runner-game/index.html" style="tex-decoration: none">For you, my leige</a></p>').insertBefore("#placeholder").fadeIn(1000);
+		}
+		//
 		//
 		//song list
 		//
