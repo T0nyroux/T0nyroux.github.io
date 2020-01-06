@@ -8,6 +8,7 @@ start = false;
 intro = 0;
 bukShot = 0;
 GnomeHealth = 1;
+RatCheck = false;
 GnomeTrip = false;
 currentArea = 1;
 cellunlocked = false;
@@ -645,7 +646,17 @@ $(document).ready(function() {
 				}
 			}
 			//
-
+			
+			//Rat
+			else if (input == "take rat" || input == "take the rat" || input == "pick up rat" || input == "pick up the rat") {
+				if (RatCheck == false) {
+					$('<p>No I refuse to let you play with the rat, there\'s no need for that.</p>').insertBefore('#placeholder').fadeIn(1000);
+					RatCheck = true;
+				} else if (RatCheck == true) {
+					$('<p>Just stop.</p>').insertBefore('#placeholder').fadeIn(1000);
+				}
+			}
+			
 			else $('<p>You can\'t do that.</p>').insertBefore("#placeholder").fadeIn(1000);
 
 		}
