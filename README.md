@@ -41,5 +41,5 @@
 ## ver 1.1
 
  Progress has taken a step back again, picked up another project to work on that's a little more hectic than this one, otherwise though,
- Jenny may no longer be making the zombie, the job may have allen on greg both as initiation for greg and motivation for Jenny,
+ Jenny may no longer be making the zombie, the job may have fallen on greg both as initiation for greg and motivation for Jenny,
  who thus far has made no progress... Sorry Jenny, 'Dems da facts, I am not a patient peer.
