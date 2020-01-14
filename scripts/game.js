@@ -2047,12 +2047,15 @@ $(document).ready(function() {
 					$('<p>But it\'s still locked</p>').insertBefore('#placeholder').fadeIn(1000);
 				} else {
 					$("img").detach(".screen");
-					$('<img src="videos/placeHolder.png" style="width:800px;height:300px;position:absolute" id="screen" class="screen">').insertBefore("#zero");
 					if (beento2_4 == false) {
+						$('<img src="videos/Area2/video_2_4/2_4back.gif" style="width:800px;height:300px;position:absolute" id="screen" class="screen">').insertBefore("#zero");
 						$('<p>You enter what was a sealed room until you so viciously tore it open.<br>There sits a small frog, so cute, as well as spores and mushrooms growing in the corner, so funky.<br>You notice the wallpaper is tearing away and the mushrooms seem very active.</p>').insertBefore('#placeholder').fadeIn(1000);
 						$('<p>Unfortunately, there isn\'t actually anything to play in this room yet, and trust me, I\'m working as fast as possible, but I think you\' re going to like this one, it requires video.</p>').insertBefore('#placeholder').fadeIn(1000);
 						beento2_4 = true;
 					} else {
+						if (wallPaper == false) {
+							$('<img src="videos/Area2/video_2_4/2_4back.gif" style="width:800px;height:300px;position:absolute" id="screen" class="screen">').insertBefore("#zero");
+						} else
 						$('<p>Still nothing, but thanks for checking :)</p>').insertBefore('#placeholder').fadeIn(1000);
 					}
 					currentroom = "2.4";
