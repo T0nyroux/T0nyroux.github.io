@@ -657,6 +657,7 @@ $(document).ready(function() {
 					RatCheck ++;
 				} else if (RatCheck == 25) {
 					$('<p>Fine.<br>You pick up the rat, it bites you, and you contract the plague.<br>Actually, and rabies.<br>Congrats.<br>You have 5 minutes, good luck.</p>').insertBefore('#placeholder').fadeIn(1000);
+					RatCheck += 1;
 					timedDialogue = setTimeout(function () {
 						currentArea = -1;
 						$("audio").detach(".death");
@@ -664,7 +665,7 @@ $(document).ready(function() {
 						$("video").detach(".death");
 						$(".death").fadeOut(3000);
 					}, 300000);
-				}
+				} else $('<p>You can\'t do that.</p>').insertBefore("#placeholder").fadeIn(1000);
 			}
 			
 			//haha satan
