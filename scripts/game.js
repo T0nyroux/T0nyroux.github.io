@@ -649,14 +649,25 @@ $(document).ready(function() {
 			
 			//Rat
 			else if (input == "take rat" || input == "take the rat" || input == "pick up rat" || input == "pick up the rat") {
-				if (RatCheck == false) {
+				if (RatCheck == 0) {
 					$('<p>No I refuse to let you play with the rat, there\'s no need for that.</p>').insertBefore('#placeholder').fadeIn(1000);
-					RatCheck = true;
-				} else if (RatCheck == true) {
+					RatCheck = 1;
+				} else if (RatCheck > 0 && RatCheck < 25) {
 					$('<p>Just stop.</p>').insertBefore('#placeholder').fadeIn(1000);
+					RatCheck ++;
+				} else if (RatCheck == 25) {
+					$('<p>Fine.<br>You pick up the rat, it bites you, and you contract the plague.<br>Actually, and rabies.<br>Congrats.<br>You have 5 minutes, good luck.</p>').insertBefore('#placeholder').fadeIn(1000);
+					timedDialogue = setTimeout(function () {
+						currentArea = -1;
+						$("audio").detach(".death");
+						$("img").detach(".death");
+						$("video").detach(".death");
+						$(".death").fadeOut(3000);
+					}, 300000);
 				}
 			}
 			
+			//haha satan
 			else $('<p>You can\'t do that.</p>').insertBefore("#placeholder").fadeIn(1000);
 
 		}
