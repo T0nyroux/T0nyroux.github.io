@@ -543,7 +543,7 @@ $(document).ready(function() {
 					note = true;
 					$("audio").detach("#take");
 					$('<audio autoplay id="take"><source src="soundfx/sand4.mp3" type="audio/mpeg">you cannot use jukebox</audio>').insertAfter("#nope");
-					$('<p>You picked up a note. It reads: <br />You asked for more excitement in your life, so we bashed your head in, gave you amnesia, and dragged you down into this dungeon, it shouldn\'t get too hard... for now...<br /><br />Sincerely,<br/>The Wish Granted Association<br /><br />P.S. Watch out for our zombie.</p>').insertBefore("#placeholder").fadeIn(1000);
+					$('<p>You picked up a note. It reads: <br />Alright, so interesting predicament.<br />Coding from scratch? Turns out, very time consuming, especially alone, which I am.<br />However, something the isn\'t quite so time consuming, is creating games within pre existing engines, like Unity. <br /> So, I figured, considering this game is a little short and hard for some people to grasp, I\'d step into proper game design and pick up with a real game engine in a rebuilt, 3d version, and make progress that way. <br /> so keep your eyes out, cause one day we\'ll all get to enjoy the pleasant embrace of a z-axis.<br /><br /> sincerely, Tony R.</p>').insertBefore("#placeholder").fadeIn(1000);
 					$("video").detach("#screen");
 					$('<video autoplay loop id="screen"><source src="videos/video_TH/TH_torch_note.mp4" type="video/mp4">you cannot use screen</video>').insertBefore("#zero");
 				}
