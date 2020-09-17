@@ -960,7 +960,7 @@ $(document).ready(function() {
 				else {
 					$('<p>Hey, so something broke in the game, you should probably refresh before you get too far because if you see this message it means something hasn\'t loaded correctly</p>').insertBefore("#placeholder").fadeIn(1000);
 				}
-
+			}
 			else $('<p>I don\'t understand "' + input + '</p>').insertBefore("#placeholder").fadeIn(1000);
 
 		}
