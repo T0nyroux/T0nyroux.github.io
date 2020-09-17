@@ -9,6 +9,7 @@ intro = 0;
 bukShot = 0;
 GnomeHealth = 1;
 RatCheck = false;
+ratEat = false;
 GnomeTrip = false;
 currentArea = 1;
 cellunlocked = false;
@@ -120,6 +121,8 @@ function fiddly() {
 		return "goose"
 	}
 }
+var ary_rat = ["Please no.", "Please?", "Can you please stop?", "Maybe stop?", "It would actually be easier if you stopped.", "You could always just not.", "Why?"];
+function rat(ary_rat) {return ary_rat[Math.floor(Math.random() * ary_rat.length)];}
 //
 //
 //
@@ -653,7 +656,8 @@ $(document).ready(function() {
 					$('<p>No I refuse to let you play with the rat, there\'s no need for that.</p>').insertBefore('#placeholder').fadeIn(1000);
 					RatCheck = 1;
 				} else if (RatCheck > 0 && RatCheck < 25) {
-					$('<p>Just stop.</p>').insertBefore('#placeholder').fadeIn(1000);
+					Rat = rat(ary_rat);
+					$('<p>' + Rat + '</p>').insertBefore("#placeholder").fadeIn(1000);
 					RatCheck ++;
 				} else if (RatCheck == 25) {
 					$('<p>Fine.<br>You pick up the rat, it bites you, and you contract the plague.<br>Actually, and rabies.<br>Congrats.<br>You have 5 minutes, good luck.</p>').insertBefore('#placeholder').fadeIn(1000);
@@ -669,6 +673,7 @@ $(document).ready(function() {
 			}
 			
 			//haha satan
+			//when did I do that?? ^^
 			else $('<p>You can\'t do that.</p>').insertBefore("#placeholder").fadeIn(1000);
 
 		}
@@ -941,6 +946,20 @@ $(document).ready(function() {
 				}
 			}
 			//
+			
+			//rat
+			else if (input == "eat rat") {
+				if (ratEat == false) {
+					$('<p>I-<br>But why<br>Why would you do that<br>everytime I think I understand my players they try something new and horrible<br>no, you can\'t eat the rat</p>').insertBefore("#placeholder").fadeIn(1000);
+					ratEat = true;
+				}
+				else if (ratEat == true) {
+					Rat = rat(ary_rat);
+					$('<p>' + Rat + '</p>').insertBefore("#placeholder").fadeIn(1000);
+				}
+				else {
+					$('<p>Hey, so something broke in the game, you should probably refresh before you get too far because if you see this message it means something hasn\'t loaded correctly</p>').insertBefore("#placeholder").fadeIn(1000);
+				}
 
 			else $('<p>I don\'t understand "' + input + '</p>').insertBefore("#placeholder").fadeIn(1000);
 
