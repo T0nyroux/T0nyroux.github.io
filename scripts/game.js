@@ -1,6 +1,7 @@
 //
 //SETS ALL VARIABLES FOR THE GAME
 //
+//I think somewhere down I line I switched up how the variables actually work. Originally, a true variable means it's still in the room, but towards the newer rooms, true means it's within the inventory. So watch out for that. Sorry
 var timedDialogue = "";
 var timedDialogue2 = "";
 var introGo = "";
