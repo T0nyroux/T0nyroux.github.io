@@ -352,7 +352,7 @@ $(document).ready(function() {
 
 		//dino clone
 		else if (input.indexOf("dinosaur") > -1) {
-			$('<p><a href="runner-game/index.html" style="tex-decoration: none">For you, my leige</a></p>').insertBefore("#placeholder").fadeIn(1000);
+			$('<p><a href="runner-game/index.html" style="text-decoration: none">For you, my leige</a></p>').insertBefore("#placeholder").fadeIn(1000);
 		}
 		//
 		//
